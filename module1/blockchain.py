@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # Module 1 - Create a BlockChain
-# flask, request(mining, add transaction), postman needed
 # Flask version==0.12.2
-# get: get actual state of bc, mining / post: add a new transaction
 
 import datetime  # for timestamp
 import hashlib  # hash the blocks
