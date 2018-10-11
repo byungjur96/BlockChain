@@ -38,7 +38,7 @@ class Euclide:
 
 
 class RSA:
-    # 7,000 ~ 8,000 사이의 임의의 소수를 출력하는 함수
+    # 지정한 범위 내 임의의 소수를 출력하는 함수
     def make_p(self):
         list_p = Euclide.find_prime('p')
         while len(list_p) == 0:
@@ -48,7 +48,7 @@ class RSA:
         p = list_p[random.randrange(0, len(list_p))]
         return p
 
-    # 9,000 ~ 10,000 사이의 임의의 소수를 출력하는 함수
+    # 지정한 범위 내 임의의 소수를 출력하는 함수
     def make_q(self):
         list_q = Euclide.find_prime('q')
         while len(list_q) == 0:
@@ -75,6 +75,7 @@ class RSA:
         e = list_e[random.randrange(0, len(list_e))]
         return e
 
+    # (e*d) mod pi = 1 인 d를 구하는 함수
     def find_d(self, e, pi):
         d = []
         i = 1
@@ -88,6 +89,7 @@ class RSA:
         return d[0]
 
 
+# 지수가 큰 거듭 제곱으로 나타낼 수 있는 수의 나머지를 빠르게 구하는 함수
 def fast_c(a, n, z):
     result = 1
     x = a % z
@@ -102,6 +104,7 @@ def fast_c(a, n, z):
     return result
 
 
+# 암호화를 진행하는 함수
 def encrypt():
     rsa = RSA()
     p = rsa.make_p()
@@ -124,6 +127,7 @@ def encrypt():
     print()
 
 
+# 복호화를 진행하는 함수
 def decrypt():
     n1 = None
     n2 = None
@@ -138,6 +142,7 @@ def decrypt():
     print()
 
 
+# 로딩 진행을 프린트해주는 함수
 def print_mesg(msg):
     print(msg, end="")
     for i in range(5):
